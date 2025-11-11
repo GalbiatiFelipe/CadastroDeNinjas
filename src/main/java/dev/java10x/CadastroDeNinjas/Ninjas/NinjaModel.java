@@ -22,7 +22,10 @@ public class NinjaModel {
     private Long id;
 
     private String nome;
+
+    @Column(unique = true) //annotation que deixa faz com que o atributo só aceito valores unicos
     private String email;
+
     private int idade;
 
     // annotation que significa: um ninja tem uma unica missao
