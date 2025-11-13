@@ -28,6 +28,9 @@ public class NinjaModel {
 
     private int idade;
 
+    @Column(name = "imagem_url")
+    private String urlImagem;
+
     // annotation que significa: um ninja tem uma unica missao
     @ManyToOne
     @JoinColumn(name = "missao_id") // Foreina Key = Chave Estrangeira
