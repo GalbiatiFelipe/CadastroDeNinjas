@@ -20,6 +20,7 @@ public class MissoesModel {
     private Long id;
 
     private String nome;
+    @Enumerated(EnumType.STRING)
     private RankMissoes rankMissoes;
 
     // annotation que significa: muitos ninjas vão ter uma unica missao
