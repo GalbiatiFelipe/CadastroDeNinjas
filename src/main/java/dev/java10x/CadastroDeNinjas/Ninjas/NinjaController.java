@@ -13,31 +13,31 @@ public class NinjaController {
 
     // CRUD
     // Adicionar ninja (CREATE)
-    @PostMapping("/criar")
+    @PostMapping("/criarninja")
     public String criarNinja() {
         return "Ninja Criado";
     }
 
     // Mostrar todos os ninjas (READ)
-    @GetMapping("/todos")
+    @GetMapping("/todosninja")
     public String mostrarTodosOsNinjas() {
         return "Lista de Ninjas Completa";
     }
 
     // Mostrar ninja por ID (READ)
-    @GetMapping("/todosID")
+    @GetMapping("/ninjaID")
     public String mostrarNinjasPorId() {
         return "ID do ninja";
     }
 
     // Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterarID")
+    @PutMapping("/alterarninjaID")
     public String alterarNinjasPorId() {
         return "Ninja Alterado";
     }
 
     // Deletar Ninja (DELETE)
-    @DeleteMapping("/deletarID")
+    @DeleteMapping("/deletarninjaID")
     public String deletarNinjaPorId() {
         return "Ninja deletado";
     }
