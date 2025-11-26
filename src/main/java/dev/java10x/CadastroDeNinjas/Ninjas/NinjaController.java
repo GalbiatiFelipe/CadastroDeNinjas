@@ -3,7 +3,7 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("ninja")
 public class NinjaController {
 
     @GetMapping("boasvindas")
@@ -11,33 +11,41 @@ public class NinjaController {
         return "Essa é minha primeira mensagem nessa rota";
     }
 
-    // CRUD
+    /*
+     * CRUD
+     *
+     * CREATE - PostMapping
+     * READ - GetMapping
+     * UPDATE - PutMapping
+     * DELETE - DeleteMapping
+     * */
+
     // Adicionar ninja (CREATE)
-    @PostMapping("/criarninja")
-    public String criarNinja() {
+    @PostMapping("/adicionar")
+    public String adicionarNinja() {
         return "Ninja Criado";
     }
 
     // Mostrar todos os ninjas (READ)
-    @GetMapping("/todosninja")
+    @GetMapping("/lista")
     public String mostrarTodosOsNinjas() {
         return "Lista de Ninjas Completa";
     }
 
     // Mostrar ninja por ID (READ)
-    @GetMapping("/ninjaID")
-    public String mostrarNinjasPorId() {
+    @GetMapping("/procurarID")
+    public String procurarNinjasPorId() {
         return "ID do ninja";
     }
 
     // Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterarninjaID")
+    @PutMapping("/alterarID")
     public String alterarNinjasPorId() {
         return "Ninja Alterado";
     }
 
     // Deletar Ninja (DELETE)
-    @DeleteMapping("/deletarninjaID")
+    @DeleteMapping("/deletarID")
     public String deletarNinjaPorId() {
         return "Ninja deletado";
     }
