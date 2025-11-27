@@ -4,6 +4,7 @@ import jakarta.persistence.Id;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 // Annotation que transforma a classe em um Service
 @Service
@@ -23,6 +24,16 @@ public class MissoesService {
     // Listar todas as missoes
     public List<MissoesModel> listarMissoes() {
         return missoesRepository.findAll();
+    }
+
+    // Listar Missoes por ID
+    public MissoesModel procurarPorId(Long id) {
+        Optional<MissoesModel> missaoPorId = missoesRepository.findById(id);
+        return missaoPorId.orElse(null);
+        /*
+         * Optinal = o id pode ou não existir na tabela
+         * .orElse = seta um retorno padrão caso o id não exista na tabela
+         * */
     }
 
 }

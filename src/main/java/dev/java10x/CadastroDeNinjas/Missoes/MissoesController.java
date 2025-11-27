@@ -36,9 +36,10 @@ public class MissoesController {
     }
 
     // Mostrar missão por ID
-    @GetMapping("/procurarID")
-    public String procurarMissaoPorId() {
-        return "ID da missão";
+    @GetMapping("/procurar/{id}")
+    public MissoesModel procurarMissaoPorId(@PathVariable Long id) {
+        //PathVariable = permite o usuario passar o id, para compor o URL
+        return missoesService.procurarPorId(id);
     }
 
     // Alterar informações da missão

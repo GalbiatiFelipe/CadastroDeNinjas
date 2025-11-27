@@ -49,6 +49,7 @@ public class NinjaController {
     // Mostrar ninja por ID (READ)
     @GetMapping("/procurar/{id}")
     public NinjaModel procurarNinjasPorId(@PathVariable Long id) {
+        //PathVariable = permite o usuario passar o id, para compor o URL
         return ninjaService.procurarNinjaPorId(id);
     }
 
