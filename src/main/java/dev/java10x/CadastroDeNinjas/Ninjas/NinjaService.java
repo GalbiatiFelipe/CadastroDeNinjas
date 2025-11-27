@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 // Annotation que transforma a classe em um Service
 @Service
@@ -23,5 +24,15 @@ public class NinjaService {
     // Listar todos os meus ninjas
     public List<NinjaModel> listarNinjas() {
         return ninjaRepository.findAll();
+    }
+
+    // Listar todos os meus ninjas por ID
+    public NinjaModel procurarNinjaPorId(Long id) {
+        Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
+        return ninjaPorId.orElse(null);
+        /*
+        * Optinal = o id pode ou não existir na tabela
+        * .orElse = seta um retorno padrão caso o id não exista na tabela
+        * */
     }
 }
