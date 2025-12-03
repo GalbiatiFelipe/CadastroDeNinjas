@@ -35,4 +35,9 @@ public class NinjaService {
         * .orElse = seta um retorno padrão caso o id não exista na tabela
         * */
     }
+
+    // Criar um novo ninja
+    public NinjaModel adicionarNinja(NinjaModel ninja) {
+        return ninjaRepository.save(ninja);
+    }
 }
