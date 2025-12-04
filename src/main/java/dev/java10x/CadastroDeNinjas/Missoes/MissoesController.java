@@ -25,8 +25,8 @@ public class MissoesController {
 
     // Adicionar missão
     @PostMapping("/adicionar")
-    public String adicionarMissao() {
-        return "Missao criada";
+    public MissoesModel adicionarMissao(@RequestBody MissoesModel missao) {
+        return missoesService.adicionarMissao(missao);
     }
 
     // Mostrar todas as missões

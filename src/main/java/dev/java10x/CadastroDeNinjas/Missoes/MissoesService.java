@@ -36,4 +36,9 @@ public class MissoesService {
          * */
     }
 
+    // adiconar uma missão
+    public MissoesModel adicionarMissao(MissoesModel missao) {
+        return missoesRepository.save(missao);
+    }
+
 }
