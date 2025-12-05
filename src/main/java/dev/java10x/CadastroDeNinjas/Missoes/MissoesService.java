@@ -41,4 +41,9 @@ public class MissoesService {
         return missoesRepository.save(missao);
     }
 
+    // deletar uma missao: metodo deve ser void
+    public void deletarMissaoPorId(Long id) {
+        missoesRepository.deleteById(id);
+    }
+
 }
