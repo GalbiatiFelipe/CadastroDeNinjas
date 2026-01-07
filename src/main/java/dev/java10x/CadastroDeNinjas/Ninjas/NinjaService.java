@@ -16,9 +16,11 @@ public class NinjaService {
     * 2- inicializar construtor
     * */
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     // Listar todos os meus ninjas
