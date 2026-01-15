@@ -1,10 +1,12 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
+import dev.java10x.CadastroDeNinjas.Ninjas.NinjaMapper;
 import jakarta.persistence.Id;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 // Annotation que transforma a classe em um Service
 @Service
@@ -16,20 +18,25 @@ public class MissoesService {
      * 2- inicializar construtor
      * */
     private MissoesRepository missoesRepository;
+    private MissoesMapper missoesMapper;
 
-    public MissoesService(MissoesRepository missoesRepository) {
+    public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper) {
         this.missoesRepository = missoesRepository;
+        this.missoesMapper = missoesMapper;
     }
 
     // Listar todas as missoes
-    public List<MissoesModel> listarMissoes() {
-        return missoesRepository.findAll();
+    public List<MissoesDTO> listarMissoes() {
+        List<MissoesModel> missoes = missoesRepository.findAll();
+        return missoes.stream()
+                .map(missoesMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     // Listar Missoes por ID
-    public MissoesModel procurarPorId(Long id) {
+    public MissoesDTO procurarPorId(Long id) {
         Optional<MissoesModel> missaoPorId = missoesRepository.findById(id);
-        return missaoPorId.orElse(null);
+        return missaoPorId.map(missoesMapper::toDTO).orElse(null);
         /*
          * Optinal = o id pode ou não existir na tabela
          * .orElse = seta um retorno padrão caso o id não exista na tabela
@@ -37,8 +44,10 @@ public class MissoesService {
     }
 
     // adiconar uma missão
-    public MissoesModel adicionarMissao(MissoesModel missao) {
-        return missoesRepository.save(missao);
+    public MissoesDTO adicionarMissao(MissoesDTO missao) {
+        MissoesModel missoesModel = missoesMapper.toModel(missao);
+        missoesRepository.save(missoesModel);
+        return missoesMapper.toDTO(missoesModel);
     }
 
     // deletar uma missao: metodo deve ser void
@@ -47,10 +56,12 @@ public class MissoesService {
     }
 
     // atualizar uma missao
-    public MissoesModel atualizarMissao(Long id, MissoesModel missao) {
-        if (missoesRepository.existsById(id)) {
-            missao.setId(id);
-            return missoesRepository.save(missao);
+    public MissoesDTO atualizarMissao(Long id, MissoesDTO missao) {
+        Optional<MissoesModel> missaoPorId = missoesRepository.findById(id);
+        if (missaoPorId.isPresent()) {
+            MissoesModel missaoAtualizada = missoesMapper.toModel(missao);
+            missoesRepository.save(missaoAtualizada);
+            return missoesMapper.toDTO(missaoAtualizada);
         }
         return null;
     }
