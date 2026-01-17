@@ -31,6 +31,8 @@ public class NinjaModel {
     @Column(name = "imagem_url")
     private String urlImagem;
 
+    private String rank;
+
     // annotation que significa: um ninja tem uma unica missao
     @ManyToOne
     @JoinColumn(name = "missao_id") // Foreina Key = Chave Estrangeira
