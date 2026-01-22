@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 // annotation que transforma uma classe em uma entidade do banco de dados
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // cria um construtor sem argumentos
 @AllArgsConstructor // cria um construtor com todos os argumentos que sempre se atualiza
 @Data // cria todos os getters e setters
+@ToString(exclude = "missao")
 public class NinjaModel {
 
     // annotations que juntas definem que o atributo logo abaixo possa gerar numeros sequencias automaticamente

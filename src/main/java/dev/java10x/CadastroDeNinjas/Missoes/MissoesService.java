@@ -17,8 +17,8 @@ public class MissoesService {
      * 1- criar atributo do tipo 'repository'
      * 2- inicializar construtor
      * */
-    private MissoesRepository missoesRepository;
-    private MissoesMapper missoesMapper;
+    private final MissoesRepository missoesRepository;
+    private final MissoesMapper missoesMapper;
 
     public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper) {
         this.missoesRepository = missoesRepository;
