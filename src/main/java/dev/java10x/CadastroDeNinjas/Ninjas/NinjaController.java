@@ -17,7 +17,7 @@ public class NinjaController {
     * 2- inicializar o construtor
     * */
 
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;

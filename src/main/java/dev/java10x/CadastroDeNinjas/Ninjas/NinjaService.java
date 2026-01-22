@@ -16,8 +16,8 @@ public class NinjaService {
     * 1- criar atributo do tipo 'repository'
     * 2- inicializar construtor
     * */
-    private NinjaRepository ninjaRepository;
-    private NinjaMapper ninjaMapper;
+    private final NinjaRepository ninjaRepository;
+    private final NinjaMapper ninjaMapper;
 
     public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
