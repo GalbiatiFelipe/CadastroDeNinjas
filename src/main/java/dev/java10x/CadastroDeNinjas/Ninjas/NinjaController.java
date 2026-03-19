@@ -42,7 +42,7 @@ public class NinjaController {
     public ResponseEntity<String> adicionarNinja(@RequestBody NinjaDTO ninja) {
         NinjaDTO novoNinja = ninjaService.adicionarNinja(ninja);
         return ResponseEntity.status(HttpStatus.CREATED) // Envia a mensagem para o servidor referente ao status http
-                .body("Ninja adicionado com sucesso: " + novoNinja.getNome()); // Mensagem personalizada
+                .body("Ninja adicionado com sucesso:dd " + novoNinja.getNome()); // Mensagem personalizada
     }
 
     // Mostrar todos os ninjas (READ)
